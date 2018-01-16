@@ -13,6 +13,7 @@ public class HelloSpringApp {
 
     // calling the method
     System.out.println(coach.getDailyWorkout());
+    System.out.println(coach.getDailyFortune());
 
     // close the appContext
     ctx.close();

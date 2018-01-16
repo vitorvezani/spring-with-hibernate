@@ -1,10 +1,10 @@
 package com.vvezani.springdemo;
 
-public class TrackCoach implements Coach {
+public class FootballCoach implements Coach {
 
   @Override
   public String getDailyWorkout() {
-    return "Run a hard 5k";
+    return "Go Ronaldo!";
   }
 
   @Override

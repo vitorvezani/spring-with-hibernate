@@ -10,7 +10,13 @@
     <!-- Define your beans here -->
 
     <bean id="myCoach"
-          class="com.vvezani.springdemo.TrackCoach">
+          class="com.vvezani.springdemo.BaseballCoach">
+          <constructor-arg ref="myFortune"></constructor-arg>
     </bean>
+
+    <bean id="myFortune"
+          class="com.vvezani.springdemo.HappyFortuneService">
+    </bean>
+
 
 </beans>
