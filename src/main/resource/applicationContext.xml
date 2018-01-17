@@ -10,25 +10,30 @@
 
   <!-- Define your beans here -->
 
-  <bean id="baseballCoach" class="com.vvezani.springdemo.BaseballCoach">
-    <constructor-arg ref="myFortune"></constructor-arg>
+  <bean id="baseballCoach" class="com.vvezani.springdemo.coach.BaseballCoach">
+    <constructor-arg ref="happyFortuneService"></constructor-arg>
   </bean>
 
-  <bean id="footballCoach" class="com.vvezani.springdemo.FootballCoach">
-    <property name="fortuneService" ref="myFortune"></property>
+  <bean id="optimisticBaseballCoach" class="com.vvezani.springdemo.coach.BaseballCoach">
+    <constructor-arg ref="randomFortuneService"></constructor-arg>
   </bean>
 
-  <bean id="volleyCoach" class="com.vvezani.springdemo.VolleyCoach">
+  <bean id="footballCoach" class="com.vvezani.springdemo.coach.FootballCoach">
+    <property name="fortuneService" ref="happyFortuneService"></property>
+  </bean>
+
+  <bean id="volleyCoach" class="com.vvezani.springdemo.coach.VolleyCoach">
     <property name="name" value="Vitor Rodrigo Vezani"></property>
     <property name="email" value="vitor.vezani@gmail.com"></property>
   </bean>
 
-  <bean id="propertieVolleyCoach" class="com.vvezani.springdemo.VolleyCoach">
+  <bean id="propertieVolleyCoach" class="com.vvezani.springdemo.coach.VolleyCoach">
     <property name="name" value="${coach.name}"></property>
     <property name="email" value="${coach.email}"></property>
   </bean>
 
-  <bean id="myFortune" class="com.vvezani.springdemo.HappyFortuneService"></bean>
+  <bean id="happyFortuneService" class="com.vvezani.springdemo.fortune.HappyFortuneService"></bean>
 
+  <bean id="randomFortuneService" class="com.vvezani.springdemo.fortune.RandomFortuneService"></bean>
 
 </beans>

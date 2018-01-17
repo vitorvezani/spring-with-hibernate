@@ -1,4 +1,4 @@
-package com.vvezani.springdemo;
+package com.vvezani.springdemo.coach;
 
 public class VolleyCoach implements Coach {
 

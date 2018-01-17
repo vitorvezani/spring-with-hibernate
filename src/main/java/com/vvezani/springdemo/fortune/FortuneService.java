@@ -1,4 +1,4 @@
-package com.vvezani.springdemo;
+package com.vvezani.springdemo.fortune;
 
 public interface FortuneService {
 

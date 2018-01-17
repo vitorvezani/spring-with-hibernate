@@ -2,7 +2,7 @@ package com.vvezani.springdemo.app;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.vvezani.springdemo.VolleyCoach;
+import com.vvezani.springdemo.coach.VolleyCoach;
 
 public class PropertiesFileMainApp {
 

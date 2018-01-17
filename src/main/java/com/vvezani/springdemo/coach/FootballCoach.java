@@ -1,4 +1,6 @@
-package com.vvezani.springdemo;
+package com.vvezani.springdemo.coach;
+
+import com.vvezani.springdemo.fortune.FortuneService;
 
 public class FootballCoach implements Coach {
 
