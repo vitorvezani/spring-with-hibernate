@@ -8,7 +8,7 @@ public class BeanScopeDemoApp {
 
   public static void main(String[] args) {
 
-    ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("beansScopeApplicationContext.xml");
+    ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("beansLifeCycleApplicationContext.xml");
 
     Coach coach = ctx.getBean("baseballCoach", Coach.class);
 
