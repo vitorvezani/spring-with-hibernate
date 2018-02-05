@@ -29,6 +29,12 @@
 			<form:input path="age" />
 			<form:errors path="age" cssClass="error" />
 		</p>
+
+		<p>
+			<label>Course Code: </label>
+			<form:input path="courseCode" />
+			<form:errors path="courseCode" cssClass="error" />
+		</p>
 		<p>
 			<form:select path="country">
 				<form:option value="Brazil"></form:option>

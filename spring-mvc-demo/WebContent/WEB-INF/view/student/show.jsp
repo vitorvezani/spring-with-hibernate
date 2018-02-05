@@ -12,6 +12,8 @@
 	<p>${student.firstname} é do ${student.country}</p>
 	<p>${student.firstname} prefere a linguagem ${student.favoriteLanguage}</p>
 
+	<p>Course Code: ${student.courseCode}</p>
+
 	<ul>
 		<c:forEach var="os" items="${student.operationSystems}">
 			<li>${os}</li>

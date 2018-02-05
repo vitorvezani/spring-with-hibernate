@@ -7,6 +7,8 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
+import com.luv2code.springdemo.validation.CourseCode;
+
 
 public class Student {
 
@@ -23,6 +25,9 @@ public class Student {
   private String favoriteLanguage;
 
   private String[] operationSystems;
+
+  @CourseCode
+  private String courseCode;
 
   @Min(value=0)
   @Max(value=150)
@@ -96,6 +101,14 @@ public class Student {
 
   public void setAge(Integer age) {
     this.age = age;
+  }
+
+  public String getCourseCode() {
+    return courseCode;
+  }
+
+  public void setCourseCode(String code) {
+    this.courseCode = code;
   }
 
   @Override
