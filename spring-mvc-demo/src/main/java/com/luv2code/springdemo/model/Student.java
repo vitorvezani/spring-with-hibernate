@@ -3,9 +3,17 @@ package com.luv2code.springdemo.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
+
 public class Student {
 
+  @NotNull(message="The firstname is required")
   private String firstname;
+
+  @NotNull(message="The lastname is required")
   private String lastname;
 
   private String country;
@@ -15,6 +23,11 @@ public class Student {
   private String favoriteLanguage;
 
   private String[] operationSystems;
+
+  @Min(value=0)
+  @Max(value=150)
+  @NotNull(message="is required")
+  private Integer age;
 
   private List<String> ocupations = new ArrayList<>();
 
@@ -75,6 +88,14 @@ public class Student {
 
   public void setOperationSystems(String[] operationSystems) {
     this.operationSystems = operationSystems;
+  }
+
+  public Integer getAge() {
+    return age;
+  }
+
+  public void setAge(Integer age) {
+    this.age = age;
   }
 
   @Override

@@ -8,7 +8,7 @@
 <title>Create new Student</title>
 </head>
 <body>
-	<p>Estudante ${student.firstname} ${student.lastname} criado com sucesso!</p>
+	<p>Estudante ${student.firstname} ${student.lastname} (idade: ${student.age}) criado com sucesso!</p>
 	<p>${student.firstname} é do ${student.country}</p>
 	<p>${student.firstname} prefere a linguagem ${student.favoriteLanguage}</p>
 
