@@ -1,5 +1,7 @@
 package com.luv2code;
 
+import java.util.Date;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -20,7 +22,10 @@ public class CreateStudentDemo {
     try {
       session.beginTransaction();
 
-      Student std = new Student("Victor", "Vezani", "vitor.vezani@gmail.com");
+      String theDateOfBirthStr = "13/09/1991";
+      Date theDateOfBirth = DateUtils.parseDate(theDateOfBirthStr);
+
+      Student std = new Student("Victor", "Vezani", "vitor.vezani@gmail.com", theDateOfBirth);
 
       session.save(std);
 
