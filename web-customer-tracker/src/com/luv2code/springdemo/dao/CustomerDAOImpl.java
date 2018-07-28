@@ -1,6 +1,9 @@
 package com.luv2code.springdemo.dao;
 
 import java.util.List;
+import java.util.Random;
+
+import javax.management.RuntimeErrorException;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -17,9 +20,14 @@ public class CustomerDAOImpl implements CustomerDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 
+	private Random rand = new Random();
+	
 	@Override
 	@Transactional(readOnly = true)
 	public List<Customer> getCustomers() {
+		
+		if(rand.nextInt(100) <= 0) throw new RuntimeException("Error in app");
+		
 		Session session = sessionFactory.getCurrentSession();
 		Query<Customer> query = session.createQuery("from Customer", Customer.class);
 		return query.getResultList();
