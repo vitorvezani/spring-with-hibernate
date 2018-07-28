@@ -16,9 +16,9 @@ public class CustomerDAOImpl implements CustomerDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
-	
+
 	@Override
-	@Transactional(readOnly=true)
+	@Transactional(readOnly = true)
 	public List<Customer> getCustomers() {
 		Session session = sessionFactory.getCurrentSession();
 		Query<Customer> query = session.createQuery("from Customer", Customer.class);
@@ -41,6 +41,29 @@ public class CustomerDAOImpl implements CustomerDAO {
 	public void delete(int id) {
 		Session session = sessionFactory.getCurrentSession();
 		session.delete(findById(id));
+	}
+
+	@Override
+	public List<Customer> findByName(String searchString) {
+		// get the current hibernate session
+		Session currentSession = sessionFactory.getCurrentSession();
+		Query<Customer> theQuery = null;
+
+		// only search by name if theSearchName is not empty
+		if (searchString != null && searchString.trim().length() > 0) {
+			// search for firstName or lastName ... case insensitive
+			theQuery = currentSession.createQuery("from Customer where lower(firstName) like :theName or lower(lastName) like :theName", Customer.class);
+			theQuery.setParameter("theName", "%" + searchString.toLowerCase() + "%");
+		} else {
+			// theSearchName is empty ... so just get all customers
+			theQuery = currentSession.createQuery("from Customer", Customer.class);
+		}
+
+		// execute query and get result list
+		List<Customer> customers = theQuery.getResultList();
+
+		// return the results
+		return customers;
 	}
 
 }

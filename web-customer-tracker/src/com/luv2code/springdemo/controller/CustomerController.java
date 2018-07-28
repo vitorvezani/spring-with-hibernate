@@ -1,9 +1,10 @@
 package com.luv2code.springdemo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -49,5 +50,17 @@ public class CustomerController {
 		customerService.delete(id);
 		return "redirect:/customers";
 	}
+	
+	@PostMapping("/search")
+    public String searchCustomers(@RequestParam("theSearchName") String searchString, Model theModel) {
+
+        // search customers from the service
+        List<Customer> theCustomers = customerService.searchCustomers(searchString);
+                
+        // add the customers to the model
+        theModel.addAttribute("customers", theCustomers);
+
+        return "list-customers";        
+    }
 	
 }
