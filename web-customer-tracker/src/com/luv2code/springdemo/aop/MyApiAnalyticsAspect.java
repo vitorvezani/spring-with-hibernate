@@ -13,12 +13,6 @@ public class MyApiAnalyticsAspect {
 
 	@Before("com.luv2code.springdemo.aop.LogAopPointcutSupport.allpublicOnDao()")
 	public void performApiAnalytics(JoinPoint jp) {
-		// display method signature
-		System.out.println(jp.getSignature());
-		// display method args
-		for (Object arg : jp.getArgs()) {
-			System.out.println(arg);
-		}
 		System.out.println("Executing performApiAnalytics...");
 	}
 	
