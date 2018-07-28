@@ -18,7 +18,7 @@
 	<div id="container">
 		<div id="content">
 			<input type="button" value="Add Customer" onclick="window.location.href='customers/showFormForAdd'; return false;" class="add-button" />
-			<form:form action="search" method="POST">
+			<form:form action="customers/search" method="POST">
                 Search customer: <input type="text" name="theSearchName" />
                 <input type="submit" value="Search" class="add-button" />
             </form:form>
