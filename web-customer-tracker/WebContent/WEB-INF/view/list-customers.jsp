@@ -5,7 +5,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
+<title>Customer List</title>
 </head>
 <body>
 	<div id="wrapper">
@@ -15,17 +16,30 @@
 	</div>
 	<div id="container">
 		<div id="content">
+			<input type="button" value="Add Customer" onclick="window.location.href='customers/showFormForAdd'; return false;" class="add-button" />
 			<table>
 				<tr>
 					<th>First Name</th>
 					<th>Last Name</th>
 					<th>Email</th>
+					<th>Action</th>
 				</tr>
 				<c:forEach var="cust" items="${customers}">
+					<c:url var="updateLink" value="/customers/showFormForUpdate">
+						<c:param name="customerId" value="${cust.id}" />
+					</c:url>
+					<c:url var="deleteLink" value="/customers/delete">
+						<c:param name="customerId" value="${cust.id}" />
+					</c:url>
 					<tr>
 						<td>${cust.firstName}</td>
 						<td>${cust.lastName}</td>
 						<td>${cust.email}</td>
+						<td>
+							<a href="${updateLink}">Update</a>
+							|
+							<a href="${deleteLink}" onclick="if (!(confirm('Are you sure you want to delete this customer?')))">Delete</a>
+						</td>
 					</tr>
 				</c:forEach>
 			</table>
