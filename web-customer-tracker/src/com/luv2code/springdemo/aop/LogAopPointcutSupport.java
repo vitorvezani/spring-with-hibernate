@@ -11,6 +11,9 @@ public class LogAopPointcutSupport {
 	@Pointcut("execution(* com.luv2code.springdemo.dao.*.*(..))")
 	public void allOnDao() {}
 	
+	@Pointcut("execution(public * com.luv2code.springdemo.dao.*.*(..))")
+	public void allpublicOnDao() {}
+	
 	@Pointcut("execution(* com.luv2code.springdemo.dao.*.get*(..))")
 	public void gettersOnDao() {}
 	

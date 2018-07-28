@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Order(3)
 public class MyLogInAppAspect {
 
-	@Before("com.luv2code.springdemo.aop.LogAopPointcutSupport.forDaoPackageNoGetterAndSetter()")
+	@Before("com.luv2code.springdemo.aop.LogAopPointcutSupport.allpublicOnDao()")
 	public void logInApp() {
 		System.out.println("Executing logInApp...");
 	}
