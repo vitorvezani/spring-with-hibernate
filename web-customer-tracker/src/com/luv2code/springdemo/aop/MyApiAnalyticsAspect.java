@@ -1,5 +1,7 @@
 package com.luv2code.springdemo.aop;
 
+import java.util.logging.Logger;
+
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -11,9 +13,11 @@ import org.springframework.stereotype.Component;
 @Order(2)
 public class MyApiAnalyticsAspect {
 
+	Logger logger = Logger.getLogger(getClass().getName());
+	
 	@Before("com.luv2code.springdemo.aop.LogAopPointcutSupport.allpublicOnDao()")
 	public void performApiAnalytics(JoinPoint jp) {
-		System.out.println("Executing performApiAnalytics...");
+		logger.info("[before] Executing performApiAnalytics...");
 	}
 	
 }

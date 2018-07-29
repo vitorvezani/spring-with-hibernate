@@ -1,6 +1,7 @@
 package com.luv2code.springdemo.aop;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
@@ -16,29 +17,29 @@ import com.luv2code.springdemo.entity.Customer;
 @Component
 @Order(3)
 public class MyLogInAppAspect {
-
+	Logger logger = Logger.getLogger(getClass().getName());
 	@Before("com.luv2code.springdemo.aop.LogAopPointcutSupport.allpublicOnDao()")
 	public void beforeLogInApp(JoinPoint jp) {
 		// display method signature
-		System.out.println(jp.getSignature());
+		logger.info(jp.getSignature().toShortString());
 		// display method args
 		for (Object arg : jp.getArgs()) {
-			System.out.println(arg);
+			logger.info(arg.toString());
 		}
-		System.out.println("[before] Executing beforeLogInApp...");
+		logger.info("[before] Executing beforeLogInApp...");
 	}
 	
 	@AfterReturning(
 			pointcut = "execution(* com.luv2code.springdemo.dao.CustomerDAO.getCustomers(..))",
 			returning = "result")
 	public void AfterReturningLogInApp(JoinPoint jp, List<Customer> result) {
-		System.out.println("[after-returning] Executing " + jp.getSignature() + "...");
-		System.out.println("[after-returning] Result is " + result);
+		logger.info("[after-returning] Executing " + jp.getSignature() + "...");
+		logger.info("[after-returning] Result is " + result);
 	}
 	
 	@After("execution(* com.luv2code.springdemo.dao.CustomerDAO.getCustomers(..))")
 	public void AfterLogInApp(JoinPoint jp) {
-		System.out.println("[after] Executing " + jp.getSignature() + "...");
+		logger.info("[after] Executing " + jp.getSignature() + "...");
 	}
 	
 }
