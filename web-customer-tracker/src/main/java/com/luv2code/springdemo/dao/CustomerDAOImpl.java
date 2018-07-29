@@ -3,8 +3,6 @@ package com.luv2code.springdemo.dao;
 import java.util.List;
 import java.util.Random;
 
-import javax.management.RuntimeErrorException;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;

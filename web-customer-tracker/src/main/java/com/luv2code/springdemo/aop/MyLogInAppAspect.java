@@ -18,7 +18,7 @@ import com.luv2code.springdemo.entity.Customer;
 @Order(3)
 public class MyLogInAppAspect {
 	Logger logger = Logger.getLogger(getClass().getName());
-	@Before("com.luv2code.springdemo.aop.LogAopPointcutSupport.allpublicOnDao()")
+	@Before("com.luv2code.springdemo.aop.LogAopPointcutSupport.forAllMvcLayers()")
 	public void beforeLogInApp(JoinPoint jp) {
 		// display method signature
 		logger.info(jp.getSignature().toShortString());
@@ -30,14 +30,14 @@ public class MyLogInAppAspect {
 	}
 	
 	@AfterReturning(
-			pointcut = "execution(* com.luv2code.springdemo.dao.CustomerDAO.getCustomers(..))",
+			pointcut = "com.luv2code.springdemo.aop.LogAopPointcutSupport.forAllMvcLayers()",
 			returning = "result")
 	public void AfterReturningLogInApp(JoinPoint jp, List<Customer> result) {
 		logger.info("[after-returning] Executing " + jp.getSignature() + "...");
 		logger.info("[after-returning] Result is " + result);
 	}
 	
-	@After("execution(* com.luv2code.springdemo.dao.CustomerDAO.getCustomers(..))")
+	@After("com.luv2code.springdemo.aop.LogAopPointcutSupport.forAllMvcLayers()")
 	public void AfterLogInApp(JoinPoint jp) {
 		logger.info("[after] Executing " + jp.getSignature() + "...");
 	}

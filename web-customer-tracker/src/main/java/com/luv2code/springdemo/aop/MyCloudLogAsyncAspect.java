@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @Order(1)
 public class MyCloudLogAsyncAspect {
 	Logger logger = Logger.getLogger(getClass().getName());
-	@Before("com.luv2code.springdemo.aop.LogAopPointcutSupport.allpublicOnDao()")
+	@Before("com.luv2code.springdemo.aop.LogAopPointcutSupport.forAllMvcLayers()")
 	public void logToCloundAsync() {
 		logger.info("[before] Executing logToCloundAsync...");
 	}

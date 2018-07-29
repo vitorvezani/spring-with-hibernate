@@ -15,7 +15,7 @@ public class MyApiAnalyticsAspect {
 
 	Logger logger = Logger.getLogger(getClass().getName());
 	
-	@Before("com.luv2code.springdemo.aop.LogAopPointcutSupport.allpublicOnDao()")
+	@Before("com.luv2code.springdemo.aop.LogAopPointcutSupport.forAllMvcLayers()")
 	public void performApiAnalytics(JoinPoint jp) {
 		logger.info("[before] Executing performApiAnalytics...");
 	}

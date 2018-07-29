@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class NotifyOpsTeamAdvice {
 	Logger logger = Logger.getLogger(getClass().getName());
-	@AfterThrowing(pointcut = "execution(* com.luv2code.springdemo.controller.*.*(..))",
+	@AfterThrowing(pointcut = "com.luv2code.springdemo.aop.LogAopPointcutSupport.forController()",
 			throwing = "exception")
 	public void performApiAnalytics(JoinPoint jp, Throwable exception) {
 		logger.info("[after-throwing] Notyfing OPS team for exception: " + exception.getMessage());

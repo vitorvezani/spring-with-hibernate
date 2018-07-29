@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Order(-99)
 public class MyProfilingAspect {
 	Logger logger = Logger.getLogger(getClass().getName());
-	@Around("execution(* com.luv2code.springdemo.controller.*.*(..))")
+	@Around("com.luv2code.springdemo.aop.LogAopPointcutSupport.forController()")
 	public Object performProfilingAnalytics(ProceedingJoinPoint pjp) throws Throwable {
 		logger.info("[around-before] Executing performProfilingAnalytics for method " + pjp.getSignature());
 		long begin = System.currentTimeMillis();
