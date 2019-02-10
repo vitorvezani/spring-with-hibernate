@@ -11,4 +11,14 @@ public class DemoController {
 		return "home";
 	}
 	
+	@GetMapping("/leaders")
+	public String getLeader() {
+		return "leaders";
+	}
+	
+	@GetMapping("/systems")
+	public String getSystem() {
+		return "systems";
+	}
+	
 }

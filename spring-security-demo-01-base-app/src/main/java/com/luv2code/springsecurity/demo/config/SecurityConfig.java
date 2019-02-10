@@ -18,14 +18,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		UserBuilder userBuilder = User.withDefaultPasswordEncoder();
 
 		auth.inMemoryAuthentication().withUser(
-				userBuilder.username("admin").password("admin").roles("ADMIN"))
-				.withUser(userBuilder.username("manager").password("manager").roles("MANAGER"))
+				userBuilder.username("admin").password("admin").roles("EMPLOYEE", "ADMIN"))
+				.withUser(userBuilder.username("manager").password("manager").roles("EMPLOYEE", "MANAGER"))
 				.withUser(userBuilder.username("employee").password("employee").roles("EMPLOYEE"));
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().anyRequest().authenticated()
+		http.authorizeRequests()
+			.antMatchers("/").hasRole("EMPLOYEE")
+			.antMatchers("/systems/**").hasRole("ADMIN")
+			.antMatchers("/leaders/**").hasRole("MANAGER")
 			.and()
 				.formLogin()
 					.loginPage("/show-my-login-page")
