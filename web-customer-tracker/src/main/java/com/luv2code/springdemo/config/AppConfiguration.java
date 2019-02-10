@@ -1,17 +1,13 @@
 package com.luv2code.springdemo.config;
 
-<<<<<<< HEAD
 import java.beans.PropertyVetoException;
 import java.util.Properties;
 
 import org.hibernate.SessionFactory;
-=======
->>>>>>> aa0f6e1db17913fe06db0851365fcf8978e59ab3
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
-<<<<<<< HEAD
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -23,17 +19,10 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
-=======
-import org.springframework.web.servlet.ViewResolver;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
-
->>>>>>> aa0f6e1db17913fe06db0851365fcf8978e59ab3
 @Configuration
 @ComponentScan("com.luv2code.springdemo")
 @EnableWebMvc
 @EnableAspectJAutoProxy
-<<<<<<< HEAD
 @EnableTransactionManagement
 public class AppConfiguration extends WebMvcConfigurerAdapter {
 
@@ -41,10 +30,6 @@ public class AppConfiguration extends WebMvcConfigurerAdapter {
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
     }
 	
-=======
-public class AppConfiguration {
-
->>>>>>> aa0f6e1db17913fe06db0851365fcf8978e59ab3
 	@Bean
 	public ViewResolver viewResolver() {
 		InternalResourceViewResolver vr = new InternalResourceViewResolver();
@@ -52,7 +37,6 @@ public class AppConfiguration {
 		vr.setSuffix(".jsp");
 		return vr;
 	}
-<<<<<<< HEAD
 
 	@Bean
 	public ComboPooledDataSource comboPooledDataSource() throws PropertyVetoException {
@@ -88,7 +72,4 @@ public class AppConfiguration {
 		return tm;
 	}
 
-=======
-	
->>>>>>> aa0f6e1db17913fe06db0851365fcf8978e59ab3
 }
