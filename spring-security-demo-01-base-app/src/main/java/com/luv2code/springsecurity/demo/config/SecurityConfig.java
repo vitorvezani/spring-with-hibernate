@@ -16,23 +16,25 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		@SuppressWarnings("deprecation")
 		UserBuilder userBuilder = User.withDefaultPasswordEncoder();
-		
-		
-		auth.inMemoryAuthentication()
-			.withUser(userBuilder.username("admin").password("admin").roles("ADMIN"))
-			.withUser(userBuilder.username("manager").password("manager").roles("MANAGER"))
-			.withUser(userBuilder.username("employee").password("employee").roles("EMPLOYEE"));
+
+		auth.inMemoryAuthentication().withUser(
+				userBuilder.username("admin").password("admin").roles("ADMIN"))
+				.withUser(userBuilder.username("manager").password("manager").roles("MANAGER"))
+				.withUser(userBuilder.username("employee").password("employee").roles("EMPLOYEE"));
 	}
-	
+
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests()
-				.anyRequest().authenticated()
+		http.authorizeRequests().anyRequest().authenticated()
 			.and()
 				.formLogin()
 					.loginPage("/show-my-login-page")
 					.loginProcessingUrl("/authenticate-the-user")
-					.permitAll();
-		
-	} 
+					.permitAll()
+			.and()
+				.logout()
+				.logoutUrl("/logout")
+				.permitAll();
+
+	}
 }
