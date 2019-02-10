@@ -22,11 +22,13 @@
 hs_err_pid*
 
 # target
-target/
-<<<<<<< HEAD
+*/target/*
+*/.idea/*
+*/.settings/*
+
+*/.classpath
+*/.project
 
 .DS_Store
 
 .idea/
-=======
->>>>>>> aa0f6e1db17913fe06db0851365fcf8978e59ab3
