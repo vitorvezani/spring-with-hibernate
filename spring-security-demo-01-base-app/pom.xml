@@ -12,7 +12,7 @@
 
 	<properties>
 		<springframework.version>5.0.12.RELEASE</springframework.version>
-		<springsecurity.version>5.0.11.RELEASE</springsecurity.version>
+		<springsecurity.version>5.2.10.RELEASE</springsecurity.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
@@ -37,7 +37,7 @@
 		<dependency>
 		    <groupId>org.springframework.security</groupId>
 		    <artifactId>spring-security-web</artifactId>
-		    <version>${springsecurity.version} </version>
+		    <version>${springsecurity.version}</version>
 		</dependency>
 				
 		<!-- Spring Security -->
